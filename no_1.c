@@ -83,7 +83,13 @@ void renameRecursive(char *basePath) {
             printf("NEWPATH %s\n", oldPath);
 
             if(dp->d_type == DT_DIR){
-                renameRecursive(oldPath);
+                //Folder AtoZ_ di dalem AtoZ_. Isi folder dalem AtoZ_ yang dalem 
+                // gausah di encrypt
+                char tempFold[256];
+                sprintf(tempFold, "%s", dp->d_name);
+                atBash(tempFold);
+                if(!strstr(dp->d_name, "AtoZ_") && !strstr(tempFold, "AtoZ_"))  
+                    renameRecursive(oldPath);
             }
             
             getStr(newName, ext, '.');
@@ -185,21 +191,17 @@ static int xmp_rename(const char *from, const char *to)
     sprintf(toPath, "%s%s", dirpath, to);
     printf("FROM PATH %s\n", fromPath);
 
-    if(strstr(toPath, "AtoZ_")){
-        if(!strstr(fromPath, "AtoZ_")){
+    if(strstr(toPath, "AtoZ_") && !strstr(fromPath, "AtoZ_")){
             renameRecursive(fromPath);
             
             FILE *fp;
             fp = fopen("/home/erki/Downloads/encode.log", "a");
             fprintf(fp, "%s -> %s\n", fromPath, toPath);
             fclose(fp);
-        }
     }
 
-    if(strstr(fromPath, "AtoZ_")){
-        if(!strstr(toPath, "AtoZ_")){
+    if(strstr(fromPath, "AtoZ_") && !strstr(toPath, "AtoZ_")){
             renameRecursive(fromPath);
-        }
     }
 
 	res = rename(fromPath, toPath);
@@ -260,7 +262,9 @@ static int xmp_create(const char* path, mode_t mode, struct fuse_file_info* fi) 
         fclose(fp);
     }
     strcat(fpath, fileName);
+
     printf("CREATE %s\n", fpath);
+    
     int res;
     res = creat(fpath, mode);
     if(res == -1)
