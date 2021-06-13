@@ -647,10 +647,32 @@ no2a.
 ![2a3](SS_no2/Screenshot(296).png)
 
 no2b.
-![2a1](SS_no2/Screenshot(299).png)
-![2a2](SS_no2/Screenshot(300).png)
-![2a3](SS_no2/Screenshot(301).png)
 
+![2b1](SS_no2/Screenshot(299).png)
+![2b2](SS_no2/Screenshot(300).png)
+![2b3](SS_no2/Screenshot(301).png)
+
+no2d.
+
+![2d3](SS_no2/Screenshot(302).png)
+
+## Soal Nomor 3
+Karena Sin masih super duper gabut akhirnya dia menambahkan sebuah fitur lagi pada filesystem mereka. 
+a. Jika sebuah direktori dibuat dengan awalan “A_is_a_”, maka direktori tersebut akan menjadi sebuah direktori spesial.
+
+b. Jika sebuah direktori di-rename dengan memberi awalan “A_is_a_”, maka direktori tersebut akan menjadi sebuah direktori spesial.
+
+c. Apabila direktori yang terenkripsi di-rename dengan menghapus “A_is_a_” pada bagian awal nama folder maka direktori tersebut menjadi direktori normal.
+
+d. Direktori spesial adalah direktori yang mengembalikan enkripsi/encoding pada direktori “AtoZ_” maupun “RX_” namun masing-masing aturan mereka tetap berjalan pada direktori di dalamnya (sifat recursive  “AtoZ_” dan “RX_” tetap berjalan pada subdirektori).
+
+e. Pada direktori spesial semua nama file (tidak termasuk ekstensi) pada fuse akan berubah menjadi lowercase insensitive dan diberi ekstensi baru berupa nilai desimal dari binner perbedaan namanya.
+
+
+Contohnya jika pada direktori asli nama filenya adalah “FiLe_CoNtoH.txt” maka pada fuse akan menjadi “file_contoh.txt.1321”. 1321 berasal dari biner 10100101001.
+
+### Jawaban No3
+Maaf masih bingung dengan maksud soal (direktori spesial) tidak sempat mengerjakan.
 
 ## Soal Nomor 4
 Untuk memudahkan dalam memonitor kegiatan pada filesystem mereka Sin dan Sei membuat sebuah log system dengan spesifikasi sebagai berikut.
@@ -695,3 +717,4 @@ Bagian `fprintf(f, "%s::%s::%02d%02d%04d-%02d:%02d:%02d",level,cmd,times->tm_mda
 
 Kendala : Tidak Ada
 ### Screenshot No.4
+![4](SS_no2/Screenshot(400).png)
