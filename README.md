@@ -717,4 +717,4 @@ Bagian `fprintf(f, "%s::%s::%02d%02d%04d-%02d:%02d:%02d",level,cmd,times->tm_mda
 
 Kendala : Tidak Ada
 ### Screenshot No.4
-![4](SS_no2/Screenshot(400).png)
+![4](SS_no4/Screenshot(400).png)
