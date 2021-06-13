@@ -11,6 +11,21 @@
 
 static  const  char *dirpath = "/home/ahdan/Downloads";
 
+void fsLog(char *level, char *cmd,int descLen, const char *desc[])
+{
+    FILE *f = fopen("/home/ahdan/SinSeiFS.log", "a");
+    time_t now;
+	time ( &now );
+	struct tm * times = localtime (&now);
+	fprintf(f, "%s::%s::%02d%02d%04d-%02d:%02d:%02d",level,cmd,times->tm_mday,times->tm_mon+1,times->tm_year+1900,times->tm_hour, times->tm_min, times->tm_sec);
+    for(int i = 0; i<descLen; i++)
+    {
+        fprintf(f,"::%s",desc[i]);
+    }
+    fprintf(f,"\n");
+    fclose(f);
+}
+
 void decryptV(char *str)
 {
     char key[] = "SISOP";
@@ -169,6 +184,8 @@ static  int  xmp_getattr(const char *path, struct stat *stbuf)
 
     res = lstat(fpath, stbuf);
 
+    const char *desc[] = {path};
+    fsLog("INFO","GETATTR",1, desc);
     if (res == -1) return -errno;
 
     return 0;
@@ -213,6 +230,9 @@ static int xmp_mkdir(const char *path, mode_t mode)
 	if (res == -1)
 		return -errno;
 
+    const char *desc[] = {path};
+    fsLog("INFO","MKDIR",1, desc);
+
 	return 0;
 }
 
@@ -250,6 +270,8 @@ static int xmp_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_
         if(res!=0) break;
     }
 
+    const char *desc[] = {path};
+    fsLog("INFO","READDIR",1, desc);
     closedir(dp);
 
     return 0;
@@ -294,6 +316,8 @@ static int xmp_rename(const char *from, const char *to)
 	if (res == -1)
 		return -errno;
 
+    const char *desc[] = {from,to};
+    fsLog("INFO","RENAME",2, desc);
 	return 0;
 }
 
@@ -322,6 +346,8 @@ static int xmp_read(const char *path, char *buf, size_t size, off_t offset, stru
 
     if (res == -1) res = -errno;
 
+    const char *desc[] = {path};
+    fsLog("INFO","READ",1, desc);
     close(fd);
 
     return res;
@@ -370,8 +396,6 @@ static struct fuse_operations xmp_oper = {
     .read = xmp_read,
     .create = xmp_create,
 };
-
-
 
 int  main(int  argc, char *argv[])
 {
