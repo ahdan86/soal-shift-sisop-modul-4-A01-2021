@@ -681,4 +681,7 @@ void fsLog(char *level, char *cmd,int descLen, const char *desc[])
 }
 ```
 
-Bagian 
+Bagian `fprintf(f, "%s::%s::%02d%02d%04d-%02d:%02d:%02d",level,cmd,times->tm_mday,times->tm_mon+1,times->tm_year+1900,times->tm_hour, times->tm_min, times->tm_sec);` akan menaruh data dari akses fungsi ke log file dengan time now. Parameter akan menyesuaikan dengan fungsi yang memanggil fungsi log contoh: `fsLog("INFO","GETATTR",1, desc);` call fuction tsb akan ditaurh di fungsi `xmp_getattr`.
+
+Kendala : Tidak Ada
+### Screenshot No.4
