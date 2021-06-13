@@ -647,7 +647,9 @@ no2a.
 ![2a3](SS_no2/Screenshot(296).png)
 
 no2b.
-
+![2a1](SS_no2/Screenshot(299).png)
+![2a2](SS_no2/Screenshot(300).png)
+![2a3](SS_no2/Screenshot(301).png)
 
 
 ## Soal Nomor 4
