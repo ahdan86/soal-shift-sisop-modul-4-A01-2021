@@ -194,6 +194,10 @@ static int xmp_create(const char* path, mode_t mode, struct fuse_file_info* fi) 
 
 Pada kedua kepingan kode diatas, dilakukan pengecekan apakah path yang diberikan mengandung string "AtoZ_"  di awalan filenya. Jika iya, maka path yang ada akan di pisahkan nama file/folder nya. Lalu dilakukan encryption atbash, setelah itu di concantenate kembali ke path yang ada.
 
+### Screenshot pengerjaan no 1A
+![image](SS_no1/ss_1a_before.jpg)
+![image](SS_no1/ss_1a_after.jpg)
+
 ### No 1b
 
 Untuk soal ini, jika sebuah directory direname dengan awalan "AtoZ_" maka directory tersebut menjadi directory yang terencode. Syarat sebuah directory untuk melakukan encode/decode adalah sebagai berikut.
@@ -239,6 +243,10 @@ static int xmp_rename(const char *from, const char *to)
 
 Pada kepingan kode di atas, akan dilakukan pengecekan. Jika nama directory pada path yang lama tidak mengandung awalan "AtoZ_" dan pada path yang baru mengandung awalan 'AtoZ_", maka file di dalam directory akan dilakukan encryption.
 
+### Screenshot pengerjaan no 1B
+![image](SS_no1/ss_1b_before.jpg)
+![image](SS_no1/ss_1b_after.jpg)
+
 ### No 1c
 
 Untuk soal ini, bila sebuah directory yang terencode (mengandung awalan "AtoZ_") direname menjadi folder yang tidak mengandung awalan string tersebut, maka file pada directory tersebut akan terdecode kembali menjadi normal. Untuk implementasinya dapat dilihat di bawah ini.
@@ -273,6 +281,10 @@ static int xmp_rename(const char *from, const char *to)
 }
 ```
 pada kepingan kode diatas, akan dilakukan pengecekan apakah nama directory yang lama mengandung awalan "AtoZ_" dan nama directory yang baru tidak mengandung awalan "AtoZ_". Jika iya, karena metode encryption hanya melakukan mirror dari string yang diberikan, maka decoding dapat dilakukan hanya dengan pemanggilan kembali fungsi `atBash()`.
+
+### Screenshot pengerjaan no 1C
+![image](SS_no1/ss_1c_before.jpg)
+![image](SS_no1/ss_1c_after.jpg)
 
 ### No 1d
 
@@ -350,6 +362,11 @@ static int xmp_mkdir(const char *path, mode_t mode)
 
 Pada kepingan kode diatas, setiap encoding sebuah file/folder akan dicatat di log. Untuk pembuatan log  terdapat di fungsi `main()`.
 
+### Screenshot pengerjaan no 1D
+![image](SS_no1/ss_1d_before.jpg)
+![image](SS_no1/ss_1d_after1.jpg)
+![image](SS_no1/ss_1d_after2.jpg)
+
 **Fungsi main**
 
 ```c
@@ -426,3 +443,7 @@ void renameRecursive(char *basePath,int tag) {
 Pada kepingan kode diatas, sebuah path directory awal akan diberikan. Lalu dilakukan iterasi pada isi dalam file tersebut. Jika terdapat sebuah folder yang tidak mengandung awalan "AtoZ_", maka akan dilakukan pemanggilan fungsi `renameRecursive()` dengan parameter path dari file dari directory tersebut (recurrence). 
 
 Pada implementasi diatas, jika terdapat sebuah folder yang telah terencrypt di dalam sebuah folder yang telah terencrypt, maka tidak dilakukan encryption kembali karena namaa file pada sub-directory tersebut akan menjadi normal.
+
+### Screenshot pengerjaan no 1E
+![image](SS_no1/ss_1e_before.jpg)
+![image](SS_no1/ss_1e_after.jpg)
