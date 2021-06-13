@@ -640,6 +640,14 @@ Sama seperti no1 sebelumnya
 Kendala: tidak bisa decode dengan dua metode enkripsi yg berbeda dan bingung di soal 2e
 
 ### ScreenShot No 2
+no2a.
+
+![2a1](SS_no2/Screenshot(294).png)
+![2a2](SS_no2/Screenshot(295).png)
+![2a3](SS_no2/Screenshot(296).png)
+
+no2b.
+
 
 
 ## Soal Nomor 4
