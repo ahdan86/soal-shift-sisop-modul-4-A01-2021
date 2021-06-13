@@ -119,7 +119,7 @@ static int xmp_mkdir(const char *path, mode_t mode)
         getStr(fpath, fileName, '/');
         strrev(fileName);
         atBash(fileName);
-        printf("MASUK SINI AJG\n");
+        printf("TEST\n");
 
         FILE *fp;
         fp = fopen("/home/ahdan/Downloads/encode.log", "a");
@@ -169,7 +169,7 @@ static int xmp_create(const char* path, mode_t mode, struct fuse_file_info* fi) 
         strrev(ext);
         atBash(fileName);
         strcat(fileName, ext);
-        printf("MASUK SINI AJG\n");
+        printf("TEST\n");
 
         FILE *fp;
         fp = fopen("/home/ahdan/Downloads/encode.log", "a");
