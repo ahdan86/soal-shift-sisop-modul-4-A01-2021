@@ -197,10 +197,12 @@ static int xmp_mkdir(const char *path, mode_t mode)
 	char fpath[1000], fileName[100];
 
 	sprintf(fpath, "%s%s", dirpath, path);
-
+	
+    getStr(fpath, fileName, '/');
+    strrev(fileName);
     if(strstr(fpath, "AtoZ_")){
-        getStr(fpath, fileName, '/');
-        strrev(fileName);
+        //getStr(fpath, fileName, '/');
+        //strrev(fileName);
         atBash(fileName);
         printf("MASUK SINI AJG\n");
 
@@ -211,8 +213,8 @@ static int xmp_mkdir(const char *path, mode_t mode)
     }
     else if(strstr(fpath,"RX_"))
     {
-        getStr(fpath, fileName, '/');
-        strrev(fileName);
+        //getStr(fpath, fileName, '/');
+        //strrev(fileName);
         rot13(fileName);
         printf("hasil rot13: %s\n",fileName);
         atBash(fileName);
